@@ -1,0 +1,29 @@
+version: "3"
+services:
+  iroha:
+    image: registry:5000/tksarah/iroha_app:latest
+    deploy: 
+      replicas: 3
+      placement:
+        constraints: [node.role != manager]
+    environment:
+      SERVICE_PORTS: 80
+      MYSQL_HOST: iroha_app_db
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - irohanet
+  
+  db:
+    image: registry:5000/tksarah/iroha_db:latest
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.role != manager]
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - irohanet
+
+networks:
+  irohanet:
+    external: true

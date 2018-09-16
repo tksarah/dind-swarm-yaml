@@ -1,7 +1,7 @@
 FROM centos:7
 LABEL maintainer="hoge@example.com"
 
-ARG version="0.9.17"
+ARG version="0.9.18"
 WORKDIR /tmp
 
 # Install wget

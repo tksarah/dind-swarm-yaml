@@ -33,11 +33,6 @@ COPY conf/database.php.tmpl /var/www/html/Config/
 RUN rm /etc/httpd/conf/httpd.conf
 COPY conf/httpd.conf /etc/httpd/conf/
 
-# Copy app.sql for MySQL 5.6 < 
-# https://dev.mysql.com/doc/refman/5.7/en/datetime.html
-#RUN rm /var/www/html/Config/app.sql
-#COPY conf/app.sql /var/www/html/Config/
-
 # Change session management
 RUN rm /var/www/html/Config/core.php
 COPY conf/core.php /var/www/html/Config/

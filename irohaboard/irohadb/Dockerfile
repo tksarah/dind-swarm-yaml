@@ -1,4 +1,4 @@
-FROM mysql:5.5
+FROM mysql:5.7
 
 LABEL maintainer="hoge@example.com"
 
